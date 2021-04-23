@@ -12,7 +12,7 @@ services:
       # Bring Git setup to the container
       - ${HOME}/.gitconfig:/root/.gitconfig
       # Keep bash history 
-      - ${HOME}/docker/config/.bash_history:/root/.bash_history
+      # - ${HOME}/docker/config/.bash_history:/root/.bash_history
       # Keep VSCode's plugin
       - ${HOME}/docker/config/.vscode-server:/root/.vscode-server
     networks:
@@ -37,7 +37,7 @@ services:
       - ACCEPT_EULA=y
       - MSSQL_ENABLE_AGENT=false
     volumes:
-      - $HOME/dbdata/mssql/:/var/opt/mssql/data
+      - mssql-data:/var/opt/mssql/data
     user: "root:root"
     networks:
       tds-bridge:
@@ -50,13 +50,17 @@ services:
     hostname: ase-server
     working_dir: /home/sybase
     volumes:
-      - $HOME/dbdata/sybase/data:/data
+      - sybase-data:/data
     networks:
       tds-bridge:
     ports:
       - 5000:5000
     tty: true
     entrypoint: "/home/sybase/bin/entrypoint.sh"
+
+volumes:
+  sybase-data:
+  mssql-data:
 
 networks:
   tds-bridge:
