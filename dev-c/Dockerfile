@@ -20,11 +20,8 @@ RUN apt update \
     gperf \
     libtool \
     binutils \
-# GIT
     git \
-# dependencies
     libssl-dev \
-# autre 
     locales
 
 RUN locale-gen en_US \
