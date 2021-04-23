@@ -14,7 +14,7 @@ The docker compose file starts the following containers:
 - Sybase ASE container (blieusong/sybase-ase),
 - MSSQL Server container (Microsoft's official container)
 
-# Getting Started
+## Getting Started
 Run
 ```
 docker-compose up -d
@@ -23,3 +23,4 @@ docker-compose up -d
 If you don't want to start all the databases at the same time, just specify which services **docker-compose** shall start. For example, if you only need the FreeTDS container and an ASE Server:
 ```
 docker-compose up -d freetds-dev ase-server
+```
