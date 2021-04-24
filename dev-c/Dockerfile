@@ -39,3 +39,6 @@ RUN curl ${FREETDS_TARBALL} | tar -xzf - \
     && make install \
     && cd .. \
     && rm -fr freetds-${FREETDS_VERSION} *.tar.gz
+
+ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib
+
